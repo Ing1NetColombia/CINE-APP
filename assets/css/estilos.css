@@ -1,0 +1,42 @@
+body
+{
+    background-color:#261d1e;
+}
+
+#Form_pelicula
+{
+    margin-top: 10vh;
+    background-color:rgb(209, 201, 201);
+}
+
+#Form_horario
+{
+    margin-top: 5vh;
+    background-color:#D6A5A8;
+    border-radius: 3%;
+    font-style: italic;
+}
+
+.imagencarrusel
+{
+    height: 40vh;
+    width: 100vw;
+    border-radius: 1%;
+}
+
+.tblhorario
+{
+    margin-top: 5vh;
+    color:rgb(248, 247, 246) !important;
+    border-radius: 3%;
+    font-style: italic;  
+}
+
+#tbl_horario>tr>td{
+    color: white !important;
+}
+
+.colorbanda{
+    background-color: #704749;
+    color:white;
+}

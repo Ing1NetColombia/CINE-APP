@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salas</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    
+
+    <div class="row">
+        <div class="col-6 offset-3 justify-content-center" id="Form_pelicula">
+    
+            <h1>Ingreso de Salas</h1>
+
+            <form action="">
+                <label for="Id">Id </label>
+                <input type="number" name ="Id" class="form-control" min="0">
+
+                <label for="Nombre">Nombre</label>
+                <input type="text" name = "Nombre" class="form-control">
+
+                <label for="IdCategoria">Categoria</label>
+                <select name="IdCategoria" id="" class="form-control">
+                    <option value="1">Comedia</option>
+                    <option value="2">Suspenso</option>
+                    <option value="3">Caricatura</option>
+                    <option value="4">Ficción</option>
+                </select>
+                
+                <label for="IdClasificacion"> Clasificación</label>
+                <select name="IdClasificacion" id="" class="form-control">
+                    <option value="1">7+</option>
+                    <option value="2">15+</option>
+                    <option value="3">18+</option>
+                    <option value="4">Todos</option>
+                </select>
+
+                <label for="Actores">Actores</label>
+                <input type="text" name="Actores" class="form-control">
+
+                <div class="col-2 offset-5 my-5">
+                <button class="btn btn-success">Guardar</button>
+                </div>
+
+</body>
+</html>

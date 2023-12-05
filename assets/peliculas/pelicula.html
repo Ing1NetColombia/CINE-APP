@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peliculas</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+          <h5 class="text-white h4">Collapsed content</h5>
+          <span class="text-muted">Toggleable via the navbar brand.</span>
+        </div>
+      </div>
+      <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6 offset-3 justify-content-center" id="Form_pelicula">
+        
+                <h1>Ingreso de Peliculas</h1>
+
+                <form action="">
+                    <label for="Id">Id </label>
+                    <input type="number" name ="Id" class="form-control" min="0">
+
+                    <label for="Nombre">Nombre</label>
+                    <input type="text" name = "Nombre" class="form-control">
+
+                    <label for="IdCategoria">Categoria</label>
+                    <select name="IdCategoria" id="" class="form-control">
+                        <option value="1">Comedia</option>
+                        <option value="2">Suspenso</option>
+                        <option value="3">Caricatura</option>
+                        <option value="4">Ficción</option>
+                    </select>
+                    
+                    <label for="IdClasificacion"> Clasificación</label>
+                    <select name="IdClasificacion" id="" class="form-control">
+                        <option value="1">7+</option>
+                        <option value="2">15+</option>
+                        <option value="3">18+</option>
+                        <option value="4">Todos</option>
+                    </select>
+
+                    <label for="Actores">Actores</label>
+                    <input type="text" name="Actores" class="form-control">
+
+                    <div class="col-2 offset-5 my-5">
+                    <button class="btn btn-success">Guardar</button>
+                    </div>
+
+                    <a href="../../index.html">gustavo</a>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
