@@ -1,42 +1,24 @@
 body
 {
-    background-color:#261d1e;
-}
-
-#Form_pelicula
-{
-    margin-top: 10vh;
-    background-color:rgb(209, 201, 201);
-}
-
-#Form_horario
-{
-    margin-top: 5vh;
-    background-color:#D6A5A8;
-    border-radius: 3%;
-    font-style: italic;
+    background-image: url(/assets/imagenes/mario.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-color: black; */
 }
 
 .imagencarrusel
 {
     height: 40vh;
-    width: 100vw;
     border-radius: 1%;
 }
 
-.tblhorario
-{
-    margin-top: 5vh;
-    color:rgb(248, 247, 246) !important;
-    border-radius: 3%;
-    font-style: italic;  
+.frmlogin{
+    margin-top: 10vh;
+    border-radius: 3% ;
+    background-color:rgba(252, 251, 251, .7);
 }
 
-#tbl_horario>tr>td{
-    color: white !important;
+.fondoblanco{
+    background-color:rgba(252, 251, 251, .7);
 }
 
-.colorbanda{
-    background-color: #704749;
-    color:white;
-}
