@@ -1,8 +1,9 @@
 body
 {
     background-image: url(/assets/imagenes/mario.jpg);
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     background-size: cover;
+    height: 100vh !important;
     /* background-color: black; */
 }
 
@@ -19,6 +20,6 @@ body
 }
 
 .fondoblanco{
-    background-color:rgba(252, 251, 251, .7);
+    background-color:rgba(252, 251, 251, .7);  
+    /* height: 100vh;  */
 }
-
