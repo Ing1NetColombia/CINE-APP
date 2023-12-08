@@ -120,24 +120,7 @@
           </div>
         </div>
 
-        <div class="card mb-3">
-            <!-- <img src="..." class="card-img-top" alt="..."> -->
-            <video src="https://www.youtube.com/watch?v=-YRw-3dgsjo" class="card-img-top" alt="Video Wonka"></video>
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-          <!-- <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-            <img src="..." class="card-img-bottom" alt="...">
-          </div> -->
-  
+        <div id="carteleras"></div>
 
         <br>
     </div>
@@ -161,5 +144,32 @@
     </div>
 
     <script src="../js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        cargarPeliculas();
+        function cargarPeliculas(){
+            var cpeliculas = JSON.parse(localStorage.getItem("peliculag")) || [];
+            cpeliculas.forEach(function(cpelis){
+                var cartelera = `
+                <div class="card mb-3">
+                    <iframe src="https://www.youtube.com/watch?v=-YRw-3dgsjo" class="card-img-top" title="W3Schools Free Online Web Tutorials" width="1280px" height="300px"></iframe>
+                    <div class="card-body">
+                    <h5 class="card-title" id="nombre">${cpelis["nombre"]}</h5>
+                    <p class="card-text" id="sinopsis">${cpelis["sinopsis"]}</p>
+                    <h6 class="card-text" id="categoria">${cpelis["categoria"]}</h6>
+                    <h6 class="card-text" id="clasificacion">${cpelis["clasificacion"]}</h6>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+                `;
+        document.getElementById("carteleras").innerHTML += cartelera;
+
+            });
+
+        }
+  
+
+
+    </script>
 </body>
 </html>
