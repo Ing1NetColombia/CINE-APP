@@ -18,7 +18,7 @@
               >
             </li>
             <li class="nav-item" id="nav">
-              <a class="nav-link active" href="/assets/Cartelera/Cartelera.html"
+              <a class="nav-link text-danger" href="/assets/Cartelera/Cartelera.html"
                 >Cartelera</a
               >
             </li>
@@ -26,71 +26,59 @@
               <a class="nav-link text-danger" href="/assets/confiteria/confiteria.html"
                 >Confiteria</a
               >
+              
+            </li>
+            <li class="nav-item">
+              <a hidden class="nav-link text-danger" id="config" href="/assets/Menu/menu.html"
+                >Configuración</a
+              >
             </li>
             <div class="ms-auto">
               <li class="" id="nav">
-                <a class="nav-link text-danger" href="/assets/usuarios/login.html"
+                <a class="nav-link active" href="/assets/usuarios/login.html"
                   >Login</a>
               </li>
             </div>
           </ul>
         </div>
       </div>
-      <!-- <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-            Configuración
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <li><a class="dropdown-item" href="/assets/Menu/peliculas/pelicula.html">Peliculas</a></li>
-            <li><a class="dropdown-item" href="/assets/Menu/confites/confites.html">Confiteria</a></li>
-            <li><a class="dropdown-item" href="/assets/Menu/horarios/horario.html">Horarios y Tarifas</a></li>
-            <li><a class="dropdown-item" href="/index.html">Salir</a></li>
-          </ul>
-        </div> -->
+
       <div class="row">
         <div class="col-6 offset-3 frmlogin">
         <form class="p-4">
           <div class="mb-3">
             <label for="exampleDropdownFormEmail2" class="form-label"
-              >Email address</label
+              >Correo Electrónico</label
             >
             <input
               type="email"
               class="form-control"
-              id="exampleDropdownFormEmail2"
-              placeholder="email@example.com"
+              id="correo"
+              placeholder="correo@mail.com"
             />
           </div>
           <div class="mb-3">
             <label for="exampleDropdownFormPassword2" class="form-label"
-              >Password</label
+              >Contraseña</label
             >
             <input
               type="password"
               class="form-control"
-              id="exampleDropdownFormPassword2"
-              placeholder="Password"
+              id="clave"
+              placeholder="Contraseña"
             />
           </div>
           <div class="mb-3">
-            <div class="form-check">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="dropdownCheck2"
-              />
-              <label class="form-check-label" for="dropdownCheck2">
-                Remember me
-              </label>
-            
-            </div>
+
           </div>
-          <input type="button" class="btn btn-primary">Sign in</input>
+          <input id="login" type="button" class="btn btn-primary" value="Enviar">
         </form>
        </div>
       </div>
       <br>
     </div>
+
+
     <div class="container fondoblanco">
       <footer>
         <div class="mt-3">
@@ -111,5 +99,22 @@
     </div>
 
     <script src="../js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document.getElementById("login").addEventListener("click",function(){
+        
+        var objusuarios = {
+          correo: document.getElementById("correo").value,
+          clave: document.getElementById("clave").value
+
+        }
+        
+        localStorage.setItem("usuariog", JSON.stringify(objusuarios));     
+
+
+        window.location.href = "../../index.html"
+
+      });
+    </script>
   </body>
 </html>

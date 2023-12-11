@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peliculas</title>
+    <title>Ingreso Confiteria</title>
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/estilos.css">
 </head>
@@ -20,6 +20,54 @@
           <li><a class="dropdown-item" href="/index.html">Salir</a></li>
         </ul>
       </div>
+
+      <div class="row">
+        <div class="col-6 offset-3 justify-content-center">
+          <h1>Ingreso de Confiteria</h1>
+
+          <form action="" id="frmconfites">
+            <label for="id">Id </label>
+            <input type="number" name="id" id="id" class="form-control" min="0" />
+
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" class="form-control" />
+
+            <label for="descripcion">Descripción</label>
+            <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="5"></textarea>
+
+            <label for="valor">Valor</label>
+            <input type="text" name="valor" id="valor" class="form-control" />
+            
+            <input type="file" id="imagen" accept="image/*">  <!--  image/* me muestra el directorio  -->
+            <button id="gimagen"></button>
+
+            <div class="col-2 offset-5 my-5">
+              <input
+                type="button"
+                class="btn btn-success"
+                onclick="guardarPeliculas()"
+                value="Guardar"
+              />
+            </div>
+
+          </form>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-5">
+          <table class="table table-striped table-hover">
+            <thead class="justify-content-center">
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Valor</th>
+            </thead>
+            <tbody id="tbl_pelicula"></tbody>
+          </table>
+        </div>
+        <br />
+      </div>
+    </div>
+
 
     <div class="container fondoblanco">
         <footer>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Peliculas</title>
+    <title>Ingreso Peliculas</title>
     <link rel="stylesheet" href="../../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../css/estilos.css" />
   </head>
@@ -51,7 +51,7 @@
             <input type="text" name="nombre" id="nombre" class="form-control" />
 
             <label for="sinopsis">Sinopsis</label>
-            <textarea class="form-control" name="sinopsis" id="sinopsis" cols="30" rows="10"></textarea>
+            <textarea class="form-control" name="sinopsis" id="sinopsis" cols="30" rows="5"></textarea>
 
             <label for="categoria">Categoria</label>
             <select name="categoria" id="categoria" class="form-control">
@@ -74,6 +74,8 @@
               <option value="1"></option> <!--para traerlo de la tabla tarifas el campo orden-->
             </select>
 
+            <input type="file" id="imagen" accept="image/*">  <!--  image/* me muestra el directorio  -->
+           
             <div class="col-2 offset-5 my-5">
               <input
                 type="button"
@@ -99,7 +101,6 @@
             <tbody id="tbl_pelicula"></tbody>
           </table>
         </div>
-        <div class="col-1"></div>
         <br />
       </div>
     </div>
@@ -126,6 +127,9 @@
       leerPelicula();
 
       function guardarPeliculas() {
+
+        guardarImagen();
+      
         var peliculas = JSON.parse(localStorage.getItem("peliculag")) || []; //Obtiene los horarios ya guardados, si no sobreescribe en el localstorage
 
         var objId = document.getElementById("id").value;
@@ -134,6 +138,7 @@
         var objCategoria = document.getElementById("categoria").value;
         var objclasificacion = document.getElementById("clasificacion").value;
         var objidtarifa = document.getElementById("idtarifa").value;
+       
 
         var pelicula = {
           id: objId,
@@ -142,6 +147,7 @@
           categoria: objCategoria,
           clasificacion: objclasificacion,
           tarifa: objidtarifa,
+          imagen: localStorage.getItem("tmpimagen"),
         };
 
         peliculas.push(pelicula); //envie lo que esta en el objeto pelicula
@@ -174,6 +180,30 @@
           tbl_pelicula2.innerHTML += cadena;
         });
       }
+
+      function guardarImagen (id) {
+        var imgpelicula = document.getElementById("imagen");
+        if(imgpelicula.files.length > 0){
+          //console.log(imgpelicula.files);
+          var n = imgpelicula.files[0];
+          
+
+          const a = new FileReader(); //file viene con metodos vacios
+          a.onload = function(even){ // onload establecer que se va a hacer luego de convertir a base 64 - SOBREESCRIBIR UN METODO
+            //console.log(b64imagen); //metodo de consola es para pruebas y mirar como vamos en consola, Cuando onload se utiliza con readasdataurl se sobre escribe sobre target.result
+            localStorage.setItem("tmpimagen",even.target.result);
+         }
+          a.readAsDataURL(n);//metodo que convierte la imagen a base 64.
+        }        
+        
+
+      }
+
+
     </script>
+
+
+
+
   </body>
 </html>

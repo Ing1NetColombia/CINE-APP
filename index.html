@@ -27,12 +27,25 @@
                 >Confiteria</a
               >
             </li>
+
+            <li class="nav-item">
+              <a hidden id="config" class="nav-link text-danger" href="/assets/Menu/menu.html"
+                >Configuración</a
+              >
+            </li>
+
             <div class="ms-auto">
               <li class="" id="nav">
-                <a class="nav-link text-danger" href="/assets/usuarios/login.html"
+                <a id = "iniciar" class="nav-link text-danger" href="/assets/usuarios/login.html"
                   >Login</a>
               </li>
+              <!-- <li  class="" id="nav">
+                <a id="cerrar" hidden class="nav-link text-danger" href="/assets/usuarios/login.html"
+                  >Cerrar sesión</a>
+              </li> -->
             </div>
+
+
           </ul>
         </div>
         <div class="card-body">
@@ -125,65 +138,16 @@
           <div class="d-flex justify-content-center">
             <h1 class="my-4">¡¡¡ Nuestras Peliculas !!!</h1>
           </div>
-          <div class="card-group">
-            <div class="card">
-              <img
-                src="/assets/imagenes/peli1.jpg"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-                <p class="card-text">
-                  <small class="text-muted">Last updated 3 mins ago</small>
-                </p>
-              </div>
-            </div>
-            <div class="card">
-              <img
-                src="/assets/imagenes/peli1.jpg"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This card has supporting text below as a natural lead-in to
-                  additional content.
-                </p>
-                <p class="card-text">
-                  <small class="text-muted">Last updated 3 mins ago</small>
-                </p>
-              </div>
-            </div>
-            <div class="card">
-              <img
-                src="/assets/imagenes/peli1.jpg"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This card has even longer
-                  content than the first to show that equal height action.
-                </p>
-                <p class="card-text">
-                  <small class="text-muted">Last updated 3 mins ago</small>
-                </p>
-              </div>
-            </div>
+
+          <div id="tcarteleras"></div>
+
           </div>
         </div>
       </div>
       <br>
     </div>
+
+    
 
     <div class="container fondoblanco">
     <footer>
@@ -196,7 +160,7 @@
             <p class="d-flex justify-content-center m-1">
               Copyright© 2023 todos los derechos reservados
             </p>
-            <p class="d-flex justify-content-center">       
+            <p class="d-flex justify-content-center">
               Cine Flims ® SAS.
             </p>
             <hr>
@@ -205,5 +169,70 @@
   </div>
 
     <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+    var sesion = JSON.parse(localStorage.getItem("usuariog")) || false;
+    var config = document.getElementById("config");
+    var inicar = document.getElementById("iniciar");
+    // var cerrar = document.getElementById("cerrar");
+
+    if(!sesion){
+      // cuando no tiene sesion
+      config.hidden = true;
+      iniciar.hidden = false;
+      // cerrar.hidden = true;
+
+
+
+    }else{
+      // cuando esta logueado
+      config.hidden = false;
+      iniciar.hidden = true;
+      // cerrar.hidden = false;
+
+    }
+
+
+    // document.getElementById("cerrar").addEventListener("click",function(){
+    //    alert ("cerro")
+
+    // });
+
+    cargarPeliculas();
+      function cargarPeliculas() {
+        var cpeliculas = JSON.parse(localStorage.getItem("peliculag")) || [];
+
+        cpeliculas.forEach(function (cpelis) {
+          // horapeli = chorarios.filter(function (h) {
+          //   return h.Orden == cpelis.id;
+          // });
+
+    
+    
+          var tcartelera = `
+
+
+          <div class="card-group">
+            <div class="card">
+              <img src="${(cpelis["imagen"])?cpelis["imagen"]: ""}" class="card-img-top">
+              
+              <div class="card-body">
+                <h5 class="card-title" id="nombre">${cpelis["nombre"]}</h5>
+                <p class="card-text" id="sinopsis">${cpelis["sinopsis"]}</p>
+                <p class="card-text">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+              </div>
+            </div>
+                
+                `;
+
+
+          document.getElementById("tcarteleras").innerHTML += tcartelera;
+        });
+      }
+
+    </script>
   </body>
 </html>

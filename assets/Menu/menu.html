@@ -17,7 +17,7 @@
               <li><a class="dropdown-item" href="/assets/Menu/peliculas/pelicula.html">Peliculas</a></li>
               <li><a class="dropdown-item" href="/assets/Menu/confites/confites.html">Confiteria</a></li>
               <li><a class="dropdown-item" href="/assets/Menu/horarios/horario.html">Horarios y Tarifas</a></li>
-              <li><a class="dropdown-item" href="/index.html">Salir</a></li>
+              <li><a class="dropdown-item" id="cerrar">Salir</a></li>
             </ul>
           </div>
 
@@ -51,5 +51,15 @@
     
     
       <script src="../js/bootstrap.bundle.min.js"></script>
+
+      <script>
+
+document.getElementById("cerrar").addEventListener("click",function(){
+       localStorage.removeItem("usuariog");
+       window.location.href = "/index.html"
+        
+    });
+
+      </script>
 </body>
 </html>
