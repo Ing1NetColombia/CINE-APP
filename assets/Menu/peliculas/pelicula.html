@@ -128,7 +128,7 @@
 
       function guardarPeliculas() {
 
-        guardarImagen();
+        guardarImagen(objId);
       
         var peliculas = JSON.parse(localStorage.getItem("peliculag")) || []; //Obtiene los horarios ya guardados, si no sobreescribe en el localstorage
 
@@ -139,6 +139,7 @@
         var objclasificacion = document.getElementById("clasificacion").value;
         var objidtarifa = document.getElementById("idtarifa").value;
        
+        
 
         var pelicula = {
           id: objId,
@@ -149,6 +150,8 @@
           tarifa: objidtarifa,
           imagen: localStorage.getItem("tmpimagen"),
         };
+
+        localStorage.removeItem("tmpimagen");
 
         peliculas.push(pelicula); //envie lo que esta en el objeto pelicula
 
